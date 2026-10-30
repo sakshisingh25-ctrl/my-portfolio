@@ -58,7 +58,7 @@ function App() {
         <nav>
           <a href="#home">Home</a>
           <a href="#about">About</a>
-          <a href="#skills">Skills</a>
+          <a href="#skills">Technical Skills</a>
           <a href="#soft-skills">Soft Skills</a>
           <a href="#projects">Projects</a>
           <a href="#education">Education</a>
@@ -137,13 +137,14 @@ function App() {
           </div>
         </section>
 
-        {/* Technical Skills Section */}
+        {/* 1. Technical Skills */}
         <section className="section skills-section" id="skills">
           <div className="section-heading">
-            <p className="eyebrow">WHAT I'M LEARNING</p>
-            <h2>My Technical Skills</h2>
+            <p className="eyebrow">MY TECHNICAL TOOLKIT</p>
+            <h2>Technical Skills</h2>
             <p className="section-description">
-              Technologies and tools I use in my learning and projects.
+              Technologies and tools I use while learning, building projects,
+              and solving problems.
             </p>
           </div>
 
@@ -151,20 +152,20 @@ function App() {
             {skills.map((skill) => (
               <div className="skill-card" key={skill}>
                 <span className="skill-icon">✦</span>
-                {skill}
+                <span>{skill}</span>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Soft Skills Section */}
+        {/* 2. Soft Skills */}
         <section className="section soft-skills-section" id="soft-skills">
           <div className="section-heading">
             <p className="eyebrow">HOW I WORK</p>
             <h2>Soft Skills</h2>
             <p className="section-description">
-              Skills that help me collaborate, communicate, and grow as a
-              developer.
+              Personal skills that help me learn, communicate, and work
+              effectively with others.
             </p>
           </div>
 
@@ -277,4 +278,3 @@ function App() {
 }
 
 export default App;
-
