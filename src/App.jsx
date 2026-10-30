@@ -132,44 +132,32 @@ function App() {
                         </p>
                     </div>
                 </section>
-
                 <section className="section skills-section" id="skills">
+                    {/* Keep your existing My Skills heading and skills grid here */}
+                </section>
+
+                <section id="soft-skills" className="section">
                     <div className="section-heading">
-                        <p className="eyebrow">WHAT I'M LEARNING</p>
-                        <h2>My Skills</h2>
+                        <p className="eyebrow">HOW I WORK</p>
+                        <h2>Soft Skills</h2>
                         <p className="section-description">
-                            Technologies and tools I use in my learning and projects.
+                            Skills that help me collaborate, communicate, and grow as a developer.
                         </p>
                     </div>
-                    <section id="soft-skills" className="section">
-                        <div className="section-heading">
-                            <p className="section-label">HOW I WORK</p>
-                            <h2>Soft Skills</h2>
-                            <p>
-                                Skills that help me collaborate, communicate, and grow
-                                as a developer.
-                            </p>
-                        </div>
 
-                        <div className="soft-skills-grid">
-                            {softSkills.map((skill) => (
-                                <div className="soft-skill-card" key={skill}>
-                                    <span className="soft-skill-check">✓</span>
-                                    <span>{skill}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </section>
-                    <div className="skills-grid">
-                        {skills.map((skill) => (
-                            <div className="skill-card" key={skill}>
-                                <span className="skill-icon">✦</span>
-                                {skill}
+                    <div className="soft-skills-grid">
+                        {softSkills.map((skill) => (
+                            <div className="soft-skill-card" key={skill}>
+                                <span className="soft-skill-check">✓</span>
+                                <span>{skill}</span>
                             </div>
                         ))}
                     </div>
                 </section>
 
+                <section className="section projects-section" id="projects">
+                    {/* Keep your existing Projects section here */}
+                </section>
                 <section className="section projects-section" id="projects">
                     <div className="section-heading">
                         <p className="eyebrow">WHAT I'VE BEEN BUILDING</p>
@@ -204,7 +192,9 @@ function App() {
                         ))}
                     </div>
                 </section>
-
+                <section className="section projects-section" id="projects">
+                    {/* Keep your existing Projects section here */}
+                </section>
                 <section className="section education-section" id="education">
                     <div className="section-heading">
                         <p className="eyebrow">MY ACADEMIC JOURNEY</p>
