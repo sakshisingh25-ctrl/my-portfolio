@@ -12,6 +12,17 @@ const skills = [
     "Canva",
 ];
 
+const softSkills = [
+    "Communication",
+    "Teamwork",
+    "Problem-Solving",
+    "Adaptability",
+    "Time Management",
+    "Active Listening",
+    "Empathy",
+    "Willingness to Learn",
+];
+
 const projects = [
     {
         title: "JobShield",
@@ -41,7 +52,7 @@ function App() {
         <div className="portfolio">
             <header className="navbar">
                 <a href="#home" className="logo">
-                    Sakshi<span>.</span>
+                    Sakshi singh<span>.</span>
                 </a>
 
                 <nav>
@@ -87,7 +98,7 @@ function App() {
                     <div className="hero-image-wrapper">
                         <div className="image-decoration"></div>
                         <img
-                            src={`${import.meta.env.BASE_URL}profile.png`} 
+                            src={`${import.meta.env.BASE_URL}profile.png`}
                             alt="Sakshi, aspiring web developer"
                             className="profile-image"
                         />
@@ -130,7 +141,25 @@ function App() {
                             Technologies and tools I use in my learning and projects.
                         </p>
                     </div>
+                    <section id="soft-skills" className="section">
+                        <div className="section-heading">
+                            <p className="section-label">HOW I WORK</p>
+                            <h2>Soft Skills</h2>
+                            <p>
+                                Skills that help me collaborate, communicate, and grow
+                                as a developer.
+                            </p>
+                        </div>
 
+                        <div className="soft-skills-grid">
+                            {softSkills.map((skill) => (
+                                <div className="soft-skill-card" key={skill}>
+                                    <span className="soft-skill-check">✓</span>
+                                    <span>{skill}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
                     <div className="skills-grid">
                         {skills.map((skill) => (
                             <div className="skill-card" key={skill}>
@@ -201,7 +230,7 @@ function App() {
                     </p>
 
                     <a
-                        href="mailto:your-email@example.com"
+                        href="mailto:sakshisingh25@navgurukul.org"
                         className="button primary-button"
                     >
                         Email Me ↗
