@@ -87,7 +87,7 @@ function App() {
                     <div className="hero-image-wrapper">
                         <div className="image-decoration"></div>
                         <img
-                            src="/profile.png"
+                            src={`${import.meta.env.BASE_URL}profile.png`} 
                             alt="Sakshi, aspiring web developer"
                             className="profile-image"
                         />
