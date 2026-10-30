@@ -471,3 +471,53 @@
     padding: 20px;
   }
 }
+
+.soft-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.soft-skill-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 16px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  color: #1e293b;
+  font-size: 15px;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.soft-skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(30, 58, 138, 0.10);
+}
+
+.soft-skill-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  background: #dbeafe;
+  color: #1d4ed8;
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .soft-skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 420px) {
+  .soft-skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
