@@ -1,7 +1,8 @@
 
+import { useState } from "react";
 import "./App.css";
 
-const skills = [
+const technicalSkills = [
   "HTML",
   "CSS",
   "JavaScript",
@@ -14,264 +15,624 @@ const skills = [
 
 const softSkills = [
   "Communication",
-  "Teamwork",
+  "Active Listening",
   "Problem-Solving",
+  "Teamwork",
   "Adaptability",
   "Time Management",
-  "Active Listening",
   "Empathy",
   "Willingness to Learn",
 ];
 
 const projects = [
   {
-    title: "JobShield",
-    category: "React · TypeScript",
+    number: "01",
+    name: "JobShield",
+    type: "Problem-solving project",
     description:
-      "A project designed to help job seekers identify suspicious job offers and recognize common scam warning signs.",
+      "A project focused on helping job seekers identify warning signs in suspicious job opportunities and make more informed decisions.",
+    tags: ["React", "JavaScript", "Web Development"],
     link: "https://github.com/sakshisingh25-ctrl",
   },
   {
-    title: "Jobify",
-    category: "React · CSS",
+    number: "02",
+    name: "Jobify",
+    type: "Career & job search",
     description:
-      "A career platform practice project featuring job search, login, registration, and contact interfaces.",
+      "A career-focused web project designed to provide a starting point for people exploring job opportunities and career information.",
+    tags: ["React", "CSS", "JavaScript"],
     link: "https://github.com/sakshisingh25-ctrl",
   },
   {
-    title: "Student Management System",
-    category: "React · CSS",
+    number: "03",
+    name: "Student Management System",
+    type: "Learning project",
     description:
-      "A student dashboard project with profile information, courses, navigation, and a clean interface.",
+      "A student-focused interface for organizing student information and exploring features such as profiles, courses, and a dashboard.",
+    tags: ["React", "CSS", "UI Design"],
     link: "https://github.com/sakshisingh25-ctrl",
   },
 ];
 
+function SectionHeading({ eyebrow, title, description }) {
+  return (
+    <div className="section-heading">
+      <span className="eyebrow">{eyebrow}</span>
+      <h2>{title}</h2>
+      {description && <p>{description}</p>}
+    </div>
+  );
+}
+
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <div className="portfolio">
-      <header className="navbar">
-        <a href="#home" className="logo">
-          Sakshi Singh<span>.</span>
-        </a>
+      <header className="site-header">
+        <nav className="navbar container" aria-label="Main navigation">
+          <a href="#home" className="brand" onClick={closeMenu}>
+            sakshi<span>.</span>
+          </a>
 
-        <nav>
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#skills">Technical Skills</a>
-          <a href="#soft-skills">Soft Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#education">Education</a>
-          <a href="#contact">Contact</a>
+          <button
+            className="menu-toggle"
+            type="button"
+            aria-label="Toggle navigation"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? "✕" : "☰"}
+          </button>
+
+          <div className={`nav-links ${menuOpen ? "nav-open" : ""}`}>
+            <a href="#about" onClick={closeMenu}>About</a>
+            <a href="#journey" onClick={closeMenu}>My Journey</a>
+            <a href="#experience" onClick={closeMenu}>Experience</a>
+            <a href="#projects" onClick={closeMenu}>Projects</a>
+            <a href="#contact" className="nav-contact" onClick={closeMenu}>
+              Let's Connect <span>↗</span>
+            </a>
+          </div>
         </nav>
       </header>
 
       <main>
-        {/* Hero Section */}
-        <section className="hero section" id="home">
-          <div className="hero-content">
-            <p className="eyebrow">HELLO, I'M SAKSHI</p>
+        {/* HERO */}
+        <section className="hero container" id="home">
+          <div className="hero-copy">
+            <div className="availability">
+              <span className="availability-dot"></span>
+              Learning, building & growing
+            </div>
+
+            <p className="hero-greeting">HELLO, I'M SAKSHI</p>
 
             <h1>
-              Aspiring Web Developer
-              <span> & Problem Solver.</span>
+              A curious mind,
+              <br />
+              <span>building my way</span>
+              <br />
+              into technology.
             </h1>
 
             <p className="hero-description">
-              I enjoy building clean, user-friendly websites and using
-              technology to solve real-world problems. I am continuously
-              learning and improving my skills.
+              I'm a B.Com student exploring web development, building practical
+              projects, and learning how technology can solve real problems.
+              My journey is about more than code — it's also about people,
+              responsibility, and personal growth.
             </p>
 
-            <div className="hero-buttons">
-              <a href="#projects" className="button primary-button">
-                View My Projects ↗
+            <div className="hero-actions">
+              <a className="button button-primary" href="#projects">
+                Explore my work <span>↘</span>
               </a>
-
-              <a href="#contact" className="button secondary-button">
-                Contact Me
+              <a className="button button-secondary" href="#about">
+                Get to know me
               </a>
             </div>
 
-            <p className="hero-note">
-              Open to learning opportunities and internships.
-            </p>
+            <div className="hero-note">
+              <span className="note-line"></span>
+              Not there yet. Growing every day.
+            </div>
           </div>
 
-          <div className="hero-image-wrapper">
-            <div className="image-decoration"></div>
+          <div className="hero-visual">
+            <div className="visual-orbit orbit-one"></div>
+            <div className="visual-orbit orbit-two"></div>
 
-            <img
-              src={`${import.meta.env.BASE_URL}profile.png`}
-              alt="Sakshi, aspiring web developer"
-              className="profile-image"
+            <div className="profile-frame">
+              <img
+                src={`${import.meta.env.BASE_URL}profile.png`}
+                alt="Portrait of Sakshi"
+                className="profile-image"
+              />
+            </div>
+
+            <div className="floating-card floating-top">
+              <span className="floating-icon">✳</span>
+              <div>
+                <strong>Always learning</strong>
+                <small>One step at a time</small>
+              </div>
+            </div>
+
+            <div className="floating-card floating-bottom">
+              <span className="floating-icon terracotta-icon">↗</span>
+              <div>
+                <strong>People + Technology</strong>
+                <small>What I'm exploring</small>
+              </div>
+            </div>
+
+            <span className="visual-spark spark-one">✳</span>
+            <span className="visual-spark spark-two">✦</span>
+          </div>
+
+          <a href="#about" className="scroll-indicator" aria-label="Scroll to About">
+            <span>SCROLL TO EXPLORE</span>
+            <span className="scroll-arrow">↓</span>
+          </a>
+        </section>
+
+        {/* ABOUT */}
+        <section className="section about-section" id="about">
+          <div className="container about-layout">
+            <div className="about-intro">
+              <span className="eyebrow">A LITTLE ABOUT ME</span>
+              <h2>
+                I'm learning to build
+                <span className="text-accent"> things</span> — and to believe
+                in myself while doing it.
+              </h2>
+              <div className="about-decoration">“</div>
+            </div>
+
+            <div className="about-story">
+              <p>
+                I'm a B.Com student at KMT Government Girls' College, Raigarh,
+                building my path into technology while completing my degree.
+              </p>
+
+              <p>
+                At NavGurukul, my learning has gone beyond technical skills.
+                I've had opportunities to work with students, take
+                responsibility, support others, and face situations that have
+                challenged me to grow.
+              </p>
+
+              <p>
+                I am naturally someone who takes time to open up. I've been
+                working on expressing my thoughts more confidently, asking
+                questions, listening carefully, and communicating with
+                different people. I'm still improving, and that's an important
+                part of my journey.
+              </p>
+
+              <p>
+                Today, I'm learning web development by building projects,
+                exploring new tools, accepting feedback, and trying to turn
+                what I learn into something useful.
+              </p>
+
+              <div className="about-signoff">
+                <span className="signoff-line"></span>
+                <span>A work in progress, by choice.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* PERSONAL GROWTH */}
+        <section className="section growth-section" id="growth">
+          <div className="container">
+            <SectionHeading
+              eyebrow="MORE THAN A SKILL LIST"
+              title="The growth you don't see in a certificate."
+              description="Some of the most valuable things I've been learning come from everyday experiences, responsibilities, and the willingness to try again."
             />
 
-            <div className="image-caption">
-              <span className="status-dot"></span>
-              Learning. Building. Growing.
-            </div>
-          </div>
-        </section>
-
-        {/* About Section */}
-        <section className="section about-section" id="about">
-          <div className="section-heading">
-            <p className="eyebrow">GET TO KNOW ME</p>
-            <h2>About Me</h2>
-          </div>
-
-          <div className="about-content">
-            <p>
-              I'm a B.Com student interested in web development, technology,
-              and building useful digital products. My journey combines my
-              academic background with practical coding projects.
-            </p>
-
-            <p>
-              I have been learning frontend development and programming
-              fundamentals by creating projects, solving problems, and
-              exploring new tools. My goal is to grow as a developer and
-              contribute to a collaborative team.
-            </p>
-          </div>
-        </section>
-
-        {/* 1. Technical Skills */}
-        <section className="section skills-section" id="skills">
-          <div className="section-heading">
-            <p className="eyebrow">MY TECHNICAL TOOLKIT</p>
-            <h2>Technical Skills</h2>
-            <p className="section-description">
-              Technologies and tools I use while learning, building projects,
-              and solving problems.
-            </p>
-          </div>
-
-          <div className="skills-grid">
-            {skills.map((skill) => (
-              <div className="skill-card" key={skill}>
-                <span className="skill-icon">✦</span>
-                <span>{skill}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* 2. Soft Skills */}
-        <section className="section soft-skills-section" id="soft-skills">
-          <div className="section-heading">
-            <p className="eyebrow">HOW I WORK</p>
-            <h2>Soft Skills</h2>
-            <p className="section-description">
-              Personal skills that help me learn, communicate, and work
-              effectively with others.
-            </p>
-          </div>
-
-          <div className="soft-skills-grid">
-            {softSkills.map((skill) => (
-              <div className="soft-skill-card" key={skill}>
-                <span className="soft-skill-check">✓</span>
-                <span>{skill}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Projects Section */}
-        <section className="section projects-section" id="projects">
-          <div className="section-heading">
-            <p className="eyebrow">WHAT I'VE BEEN BUILDING</p>
-            <h2>Featured Projects</h2>
-            <p className="section-description">
-              Practical projects that help me learn and solve problems.
-            </p>
-          </div>
-
-          <div className="projects-grid">
-            {projects.map((project) => (
-              <article className="project-card" key={project.title}>
-                <div className="project-top">
-                  <div className="project-icon">&lt;/&gt;</div>
-                  <span className="project-category">
-                    {project.category}
-                  </span>
-                </div>
-
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="project-link"
-                >
-                  View on GitHub ↗
-                </a>
+            <div className="growth-grid">
+              <article className="growth-card growth-card-featured">
+                <span className="growth-number">01 / PEOPLE</span>
+                <div className="growth-symbol">↗</div>
+                <h3>Finding my voice</h3>
+                <p>
+                  Learning to initiate conversations, express my thoughts,
+                  ask questions, and communicate with more confidence.
+                </p>
               </article>
-            ))}
-          </div>
-        </section>
 
-        {/* Education Section */}
-        <section className="section education-section" id="education">
-          <div className="section-heading">
-            <p className="eyebrow">MY ACADEMIC JOURNEY</p>
-            <h2>Education</h2>
-          </div>
+              <article className="growth-card">
+                <span className="growth-number">02 / RESPONSIBILITY</span>
+                <div className="growth-symbol">◎</div>
+                <h3>Showing up for others</h3>
+                <p>
+                  Understanding students' concerns, listening patiently, and
+                  trying to help instead of assuming I already know the answer.
+                </p>
+              </article>
 
-          <article className="education-card">
-            <div className="education-marker"></div>
+              <article className="growth-card">
+                <span className="growth-number">03 / MINDSET</span>
+                <div className="growth-symbol">✳</div>
+                <h3>Getting comfortable with learning</h3>
+                <p>
+                  Accepting that mistakes are part of the process and that
+                  asking for help is also a way to grow.
+                </p>
+              </article>
 
-            <div>
-              <h3>Bachelor of Commerce (B.Com)</h3>
-              <p>KMT Government Girls' College, Raigarh</p>
-              <span>Expected graduation: 2027</span>
+              <article className="growth-card">
+                <span className="growth-number">04 / PRACTICE</span>
+                <div className="growth-symbol">⌘</div>
+                <h3>Turning ideas into projects</h3>
+                <p>
+                  Moving from learning concepts to creating interfaces,
+                  solving problems, and improving through practice.
+                </p>
+              </article>
             </div>
-          </article>
+          </div>
         </section>
 
-        {/* Contact Section */}
-        <section className="section contact-section" id="contact">
-          <p className="eyebrow">LET'S CONNECT</p>
-          <h2>Have an opportunity in mind?</h2>
+        {/* NAVGURUKUL JOURNEY */}
+        <section className="section journey-section" id="journey">
+          <div className="container">
+            <div className="journey-heading">
+              <div>
+                <span className="eyebrow">A CHAPTER THAT MATTERS</span>
+                <h2>
+                  My journey at
+                  <br />
+                  <span>NavGurukul.</span>
+                </h2>
+              </div>
 
-          <p>
-            I'm interested in internships, learning opportunities, and
-            connecting with people in technology.
-          </p>
+              <p>
+                A place where learning has meant more than completing lessons:
+                it has meant taking initiative, working with people, and
+                discovering what I can improve.
+              </p>
+            </div>
 
-          <a
-            href="mailto:sakshisingh25@navgurukul.org?subject=Portfolio%20Inquiry"
-            className="button primary-button"
-          >
-            Email Me ↗
-          </a>
+            <div className="journey-timeline">
+              <article className="timeline-item">
+                <div className="timeline-marker">01</div>
+                <div className="timeline-content">
+                  <span className="timeline-label">LEARNING</span>
+                  <h3>Building a foundation</h3>
+                  <p>
+                    I've been developing my understanding of HTML, CSS,
+                    JavaScript, React, Python fundamentals, and GitHub.
+                    Building projects helps me connect concepts with practice.
+                  </p>
+                </div>
+              </article>
 
-          <div className="social-links">
-            <a
-              href="https://github.com/sakshisingh25-ctrl"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
+              <article className="timeline-item">
+                <div className="timeline-marker">02</div>
+                <div className="timeline-content">
+                  <span className="timeline-label">COMMUNITY</span>
+                  <h3>Learning through responsibility</h3>
+                  <p>
+                    Supporting students through life-skills activities and
+                    technical challenges has helped me understand the
+                    importance of patience, clear communication, and teamwork.
+                  </p>
+                </div>
+              </article>
 
-            <a
-              href="https://www.linkedin.com/in/your-profile-name/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              LinkedIn
-            </a>
+              <article className="timeline-item">
+                <div className="timeline-marker">03</div>
+                <div className="timeline-content">
+                  <span className="timeline-label">PERSONAL GROWTH</span>
+                  <h3>Becoming more confident, one step at a time</h3>
+                  <p>
+                    I am learning to speak up, take initiative, listen without
+                    rushing to respond, and handle problems more calmly. These
+                    changes are ongoing, but I value the progress.
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <div className="journey-note">
+              <span className="journey-note-icon">✳</span>
+              <p>
+                <strong>What this journey means to me:</strong> Growth isn't
+                always a big achievement. Sometimes, it's having a conversation
+                that once felt difficult or trying again when something doesn't
+                work.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* EXPERIENCE */}
+        <section className="section experience-section" id="experience">
+          <div className="container">
+            <SectionHeading
+              eyebrow="LEARNING BY CONTRIBUTING"
+              title="My experience"
+              description="Roles that have helped me practise communication, responsibility, digital literacy, and problem-solving."
+            />
+
+            <div className="experience-list">
+              <article className="experience-card">
+                <div className="experience-index">01</div>
+                <div className="experience-main">
+                  <div className="experience-topline">
+                    <span className="experience-type">STUDENT SUPPORT</span>
+                    <span className="experience-context">NavGurukul</span>
+                  </div>
+                  <h3>Life Skills Coordinator (LSC)</h3>
+                  <p>
+                    Supported students with English communication and digital
+                    literacy through learning activities, Duolingo practice,
+                    and Google Sheets, while encouraging participation and
+                    consistent learning.
+                  </p>
+                  <div className="tag-list">
+                    <span>Communication</span>
+                    <span>Digital Literacy</span>
+                    <span>Student Support</span>
+                  </div>
+                </div>
+                <div className="experience-arrow">↗</div>
+              </article>
+
+              <article className="experience-card">
+                <div className="experience-index">02</div>
+                <div className="experience-main">
+                  <div className="experience-topline">
+                    <span className="experience-type">TECHNICAL SUPPORT</span>
+                    <span className="experience-context">NavGurukul</span>
+                  </div>
+                  <h3>IT Coordinator</h3>
+                  <p>
+                    Helped students troubleshoot laptop and software issues,
+                    navigate everyday digital challenges, and follow basic
+                    technical guidance while developing my own problem-solving
+                    and communication skills.
+                  </p>
+                  <div className="tag-list">
+                    <span>Troubleshooting</span>
+                    <span>Problem-Solving</span>
+                    <span>Digital Support</span>
+                  </div>
+                </div>
+                <div className="experience-arrow">↗</div>
+              </article>
+            </div>
+
+            <p className="experience-footnote">
+              These experiences have helped me learn by doing, listening, and
+              working with others.
+            </p>
+          </div>
+        </section>
+
+        {/* SKILLS */}
+        <section className="section skills-section" id="skills">
+          <div className="container skills-layout">
+            <div className="skills-intro">
+              <span className="eyebrow">WHAT I'M WORKING WITH</span>
+              <h2>
+                Skills I'm
+                <br />
+                <span>building on.</span>
+              </h2>
+              <p>
+                I'm continuing to strengthen my foundations through practice,
+                projects, and feedback. This is a learning journey, not a
+                finished checklist.
+              </p>
+            </div>
+
+            <div className="skills-content">
+              <div className="skill-group">
+                <div className="skill-group-heading">
+                  <span className="skill-group-number">01</span>
+                  <h3>Technical skills</h3>
+                </div>
+                <div className="skills-grid">
+                  {technicalSkills.map((skill) => (
+                    <span className="skill-pill" key={skill}>
+                      <span className="skill-dot"></span>
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="skill-group">
+                <div className="skill-group-heading">
+                  <span className="skill-group-number">02</span>
+                  <h3>People & work skills</h3>
+                </div>
+                <div className="skills-grid">
+                  {softSkills.map((skill) => (
+                    <span className="skill-pill soft-pill" key={skill}>
+                      <span className="skill-check">✓</span>
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* PROJECTS */}
+        <section className="section projects-section" id="projects">
+          <div className="container">
+            <div className="projects-heading-row">
+              <SectionHeading
+                eyebrow="LEARNING THROUGH BUILDING"
+                title="Things I've been creating."
+                description="Each project is an opportunity to practise, solve a problem, and understand something more deeply."
+              />
+              <a
+                className="text-link"
+                href="https://github.com/sakshisingh25-ctrl"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Visit my GitHub <span>↗</span>
+              </a>
+            </div>
+
+            <div className="projects-grid">
+              {projects.map((project) => (
+                <article className="project-card" key={project.number}>
+                  <div className="project-card-top">
+                    <span className="project-number">{project.number}</span>
+                    <span className="project-type">{project.type}</span>
+                    <span className="project-decoration">↗</span>
+                  </div>
+
+                  <div className="project-art" aria-hidden="true">
+                    <span className="art-circle art-circle-one"></span>
+                    <span className="art-circle art-circle-two"></span>
+                    <span className="art-line"></span>
+                    <span className="art-square"></span>
+                    <span className="art-symbol">
+                      {project.number === "01"
+                        ? "✓"
+                        : project.number === "02"
+                          ? "↗"
+                          : "▦"}
+                    </span>
+                  </div>
+
+                  <h3>{project.name}</h3>
+                  <p>{project.description}</p>
+
+                  <div className="tag-list project-tags">
+                    {project.tags.map((tag) => (
+                      <span key={tag}>{tag}</span>
+                    ))}
+                  </div>
+
+                  <a
+                    className="project-link"
+                    href={project.link}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Explore project <span>↗</span>
+                  </a>
+                </article>
+              ))}
+            </div>
+
+            <p className="projects-note">
+              I'm continuing to improve these projects as my skills develop.
+            </p>
+          </div>
+        </section>
+
+        {/* EDUCATION */}
+        <section className="section education-section" id="education">
+          <div className="container education-layout">
+            <div>
+              <span className="eyebrow">MY EDUCATION</span>
+              <h2>
+                Learning from
+                <br />
+                different worlds.
+              </h2>
+              <p className="education-intro">
+                My commerce education and my technology journey are helping me
+                explore different ways to understand and solve problems.
+              </p>
+            </div>
+
+            <div className="education-list">
+              <article className="education-item">
+                <div className="education-year">2024 — 2027</div>
+                <div>
+                  <h3>Bachelor of Commerce (B.Com)</h3>
+                  <p>KMT Government Girls' College, Raigarh</p>
+                  <span>Shaheed Nandkumar Patel University</span>
+                </div>
+                <span className="education-status">In progress</span>
+              </article>
+
+              <article className="education-item">
+                <div className="education-year">2023 — 2024</div>
+                <div>
+                  <h3>Class XII — Commerce</h3>
+                  <p>Carmel Girl's Higher Secondary School, Raigarh</p>
+                </div>
+                <span className="education-status">Completed</span>
+              </article>
+
+              <article className="education-item">
+                <div className="education-year">2021 — 2022</div>
+                <div>
+                  <h3>Class X</h3>
+                  <p>Abhinav High School, Raigarh</p>
+                </div>
+                <span className="education-status">Completed</span>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        {/* CONTACT */}
+        <section className="contact-section" id="contact">
+          <div className="container contact-inner">
+            <span className="eyebrow">HAVE SOMETHING IN MIND?</span>
+            <h2>
+              Let's learn,
+              <br />
+              <span>build, and grow.</span>
+            </h2>
+            <p>
+              I'm open to connecting with people who enjoy sharing ideas,
+              learning together, and creating things that make a difference.
+            </p>
+
+            <div className="contact-actions">
+              <a
+                className="button button-light"
+                href="mailto:sakshisingh25@navgurukul.org"
+              >
+                Say hello <span>↗</span>
+              </a>
+              <a
+                className="button button-outline-light"
+                href="https://github.com/sakshisingh25-ctrl"
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub <span>↗</span>
+              </a>
+            </div>
+
+            <div className="contact-bottom-note">
+              <span className="contact-star">✳</span>
+              One project, one lesson, one step at a time.
+            </div>
           </div>
         </section>
       </main>
 
-      <footer className="footer">
-        <p>© {new Date().getFullYear()} Sakshi. Built with React.</p>
+      <footer className="site-footer">
+        <div className="container footer-inner">
+          <a href="#home" className="brand footer-brand">
+            sakshi<span>.</span>
+          </a>
+          <p>Designed with curiosity and a willingness to grow.</p>
+          <a href="#home" className="back-to-top">
+            Back to top ↑
+          </a>
+        </div>
       </footer>
     </div>
   );
