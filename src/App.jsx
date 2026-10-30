@@ -230,7 +230,7 @@ function App() {
                     </p>
 
                     <a
-                        href="mailto:sakshisingh25@navgurukul.org"
+                        href="mailto:sakshisingh25@navgurukul.org?subject=portfolio%20Inquiry"
                         className="button primary-button"
                     >
                         Email Me ↗
