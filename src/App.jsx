@@ -611,12 +611,6 @@ function App() {
                   View Full Certificate ↗
                 </a>
               </div>
-
-              <img
-                src={`${import.meta.env.BASE_URL}certificates/lsc-certificate.jpeg`}
-                alt="Life Skills Coordinator certificate"
-                className="certificate-image"
-              />
             </div>
           </div>
         </section>
