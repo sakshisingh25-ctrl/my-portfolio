@@ -602,6 +602,7 @@ function App() {
                   and growing through responsibility.
                 </p>
 
+
                 <a
                   className="button button-dark"
                   href={`${import.meta.env.BASE_URL}certificates/Lsc-certificate.jpeg`}
@@ -610,6 +611,7 @@ function App() {
                 >
                   View Full Certificate ↗
                 </a>
+
               </div>
             </div>
           </div>
