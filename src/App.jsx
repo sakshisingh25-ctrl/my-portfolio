@@ -74,7 +74,7 @@ function App() {
       <header className="site-header">
         <nav className="navbar container" aria-label="Main navigation">
           <a href="#home" className="brand" onClick={closeMenu}>
-            sakshi<span>.</span>
+            sakshi singh<span>.</span>
           </a>
 
           <button
@@ -87,15 +87,18 @@ function App() {
             {menuOpen ? "✕" : "☰"}
           </button>
 
+
           <div className={`nav-links ${menuOpen ? "nav-open" : ""}`}>
             <a href="#about" onClick={closeMenu}>About</a>
             <a href="#journey" onClick={closeMenu}>My Journey</a>
             <a href="#experience" onClick={closeMenu}>Experience</a>
             <a href="#projects" onClick={closeMenu}>Projects</a>
+            <a href="#certificates" onClick={closeMenu}>Certificates</a>
             <a href="#contact" className="nav-contact" onClick={closeMenu}>
               Let's Connect <span>↗</span>
             </a>
           </div>
+
         </nav>
       </header>
 
@@ -583,6 +586,41 @@ function App() {
             </div>
           </div>
         </section>
+
+        <section className="certificates-section section-pad" id="certificates">
+          <div className="page-wrap">
+            <p className="eyebrow">A MILESTONE IN MY JOURNEY</p>
+            <h2>
+              My <span>Certificate</span>
+            </h2>
+
+            <div className="certificate-card">
+              <div className="certificate-details">
+                <h3>Life Skills Coordinator (LSC)</h3>
+                <p>
+                  A meaningful milestone in my learning, supporting students,
+                  and growing through responsibility.
+                </p>
+
+                <a
+                  className="button button-dark"
+                  href={`${import.meta.env.BASE_URL}certificates/Lsc-certificate.jpeg`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View Full Certificate ↗
+                </a>
+              </div>
+
+              <img
+                src={`${import.meta.env.BASE_URL}certificates/lsc-certificate.jpeg`}
+                alt="Life Skills Coordinator certificate"
+                className="certificate-image"
+              />
+            </div>
+          </div>
+        </section>
+
 
         {/* CONTACT */}
         <section className="contact-section" id="contact">

@@ -1641,3 +1641,43 @@ p {
     animation-duration: 0.01ms !important;
   }
 }
+
+.certificates-section {
+  background: #f8f6f0;
+}
+
+.certificate-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+  margin-top: 30px;
+  padding: 28px;
+  background: #eeeee5;
+  border: 1px solid #deded4;
+  border-radius: 12px;
+}
+
+.certificate-details h3 {
+  color: #1c382b;
+  font-size: 25px;
+}
+
+.certificate-details p {
+  color: #657067;
+  line-height: 1.8;
+}
+
+.certificate-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  border: 1px solid #deded4;
+}
+
+@media (max-width: 650px) {
+  .certificate-card {
+    grid-template-columns: 1fr;
+  }
+}
